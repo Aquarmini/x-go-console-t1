@@ -7,7 +7,6 @@ import (
 
 type Config struct {
 	Cfg *ini.File
-	//Logger *Logger `inject:"logger"`
 }
 
 func NewConfig() *Config {
@@ -17,13 +16,17 @@ func NewConfig() *Config {
 	return config
 }
 
+func (this *Config)Register() (error) {
+	return nil
+}
+
 func (this *Config)GetSection(id string) (*ini.Section, error) {
 	return this.Cfg.GetSection(id)
 }
 
 func (this *Config)GetKey(sec string, key string) (*ini.Key, error) {
-	//fmt.Println(this.Logger)
 	section, _ := this.Cfg.GetSection(sec)
 	return section.GetKey(key)
 }
+
 

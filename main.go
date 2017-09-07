@@ -9,6 +9,7 @@ import (
 
 func main() {
 	di := container.GetInstance()
+	di.Logger.Register()
 
 	var params []string
 	if len(os.Args) <= 1 {
@@ -19,6 +20,7 @@ func main() {
 	TaskMap := make(map[string]controller.ControllerInterface)
 
 	TaskMap["Test"] = &controller.TestController{DI:di}
+	TaskMap["Log"] = &controller.LogController{DI:di}
 
 	for i := 1; i < len(os.Args); i++ {
 		params = append(params, os.Args[i])

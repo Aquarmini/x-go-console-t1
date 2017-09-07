@@ -24,6 +24,7 @@ func GetInstance() Container {
 	instance = true
 
 	fmt.Println("DI Instance")
+
 	var g inject.Graph
 
 	// We provide our graph two "seed" objects, one our empty

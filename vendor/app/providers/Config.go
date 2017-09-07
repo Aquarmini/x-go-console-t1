@@ -1,11 +1,26 @@
 package providers
 
+import (
+	"github.com/go-ini/ini"
+)
+
 type Config struct {
-	id   int64
-	name string
+	cfg *ini.File
 }
 
-func (this *Config)Output() (r int64, err error) {
-	r = this.id + 1
-	return
+func (this *Config)init() {
+	if this.cfg == nil {
+		this.cfg, _ = ini.InsensitiveLoad("config.ini")
+	}
 }
+func (this *Config)GetSection(id string) (*ini.Section, error) {
+	this.init()
+	return this.cfg.GetSection(id)
+}
+
+func (this *Config)GetKey(sec string, key string) (*ini.Key, error) {
+	this.init()
+	section, _ := this.cfg.GetSection(sec)
+	return section.GetKey(key)
+}
+

@@ -5,7 +5,6 @@ import (
 	"os"
 	"github.com/facebookgo/inject"
 	"app/container"
-	"app/providers"
 )
 
 func main() {
@@ -45,9 +44,6 @@ func main() {
 	// The above API shows the underlying API which also allows the use of
 	// named instances for more complex scenarios.
 
-	a.Render()
-	a.Render()
-
-	b := providers.NewLogger();
-	b.Output();
+	//res, _ := a.Config.GetKey("database", "adapter");
+	fmt.Println(a.Config.GetKey("database", "adapter"))
 }

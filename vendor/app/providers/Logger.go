@@ -8,7 +8,7 @@ type Logger struct {
 }
 
 func NewLogger() *Logger {
-	fmt.Println("111")
+	fmt.Println("NewLogger")
 	return &Logger{
 		id:1,
 		name:"limx",

@@ -2,25 +2,28 @@ package providers
 
 import (
 	"github.com/go-ini/ini"
+	"fmt"
 )
 
 type Config struct {
-	cfg *ini.File
+	Cfg *ini.File
+	//Logger *Logger `inject:"logger"`
 }
 
-func (this *Config)init() {
-	if this.cfg == nil {
-		this.cfg, _ = ini.InsensitiveLoad("config.ini")
-	}
+func NewConfig() *Config {
+	fmt.Println("NewConfig")
+	cfg, _ := ini.InsensitiveLoad("config.ini")
+	config := &Config{Cfg:cfg}
+	return config
 }
+
 func (this *Config)GetSection(id string) (*ini.Section, error) {
-	this.init()
-	return this.cfg.GetSection(id)
+	return this.Cfg.GetSection(id)
 }
 
 func (this *Config)GetKey(sec string, key string) (*ini.Key, error) {
-	this.init()
-	section, _ := this.cfg.GetSection(sec)
+	//fmt.Println(this.Logger)
+	section, _ := this.Cfg.GetSection(sec)
 	return section.GetKey(key)
 }
 

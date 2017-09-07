@@ -16,7 +16,7 @@ func NewLogger() *Logger {
 	return &Logger{}
 }
 
-func (this *Logger)Register() (error) {
+func (this *Logger)Init() {
 	key, _ := this.Config.GetKey("log", "dir")
 	dir := key.Value()
 	// 判断日志目录是否存在
@@ -36,5 +36,4 @@ func (this *Logger)Register() (error) {
 	log.SetOutput(file)
 	log.Infoln("LoggerProvider Register");
 
-	return nil
 }

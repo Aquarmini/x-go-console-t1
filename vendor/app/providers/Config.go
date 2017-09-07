@@ -16,8 +16,8 @@ func NewConfig() *Config {
 	return config
 }
 
-func (this *Config)Register() (error) {
-	return nil
+func (this *Config)Init() {
+
 }
 
 func (this *Config)GetSection(id string) (*ini.Section, error) {

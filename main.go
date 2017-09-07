@@ -9,7 +9,8 @@ import (
 
 func main() {
 	di := container.GetInstance()
-	di.Logger.Register()
+	di.Logger.Init()
+	di.DB.Init()
 
 	var params []string
 	if len(os.Args) <= 1 {

@@ -64,10 +64,6 @@ func GetInstance() Container {
 	// The above API shows the underlying API which also allows the use of
 	// named instances for more complex scenarios.
 
-	//fmt.Println(a.Config.GetKey("database", "adapter"))
-	//fmt.Println(a.Config)
-
-
 	return di
 }
 

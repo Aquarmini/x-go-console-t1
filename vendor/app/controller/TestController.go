@@ -3,6 +3,7 @@ package controller
 import (
 	"fmt"
 	"app/container"
+	"app/models"
 )
 
 type TestController struct {
@@ -14,6 +15,7 @@ func (this *TestController)Handle() (err error) {
 	r := "Hello World " + version.Value()
 	fmt.Println(r)
 
-	fmt.Println(this.DI.DB.Query("SELECT * FROM user WHERE id = ?", 1))
+	user := models.User{}
+	fmt.Println(user.Find(1))
 	return nil
 }

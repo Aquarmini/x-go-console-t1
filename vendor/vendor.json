@@ -3,6 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
+			"path": "appengine/cloudsql",
+			"revision": ""
+		},
+		{
 			"checksumSHA1": "GqkBIw2lUA6lv/jgh9WIyR0YdWY=",
 			"path": "github.com/facebookgo/inject",
 			"revision": "cc1aa653e50f6a9893bcaef89e673e5b24e1e97b",
@@ -19,6 +23,12 @@
 			"path": "github.com/go-ini/ini",
 			"revision": "c787282c39ac1fc618827141a1f762240def08a3",
 			"revisionTime": "2017-08-13T05:22:30Z"
+		},
+		{
+			"checksumSHA1": "N5D1aYGZh5OUVArhFW0voidER3A=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "26471af196a17ee75a22e6481b5a5897fb16b081",
+			"revisionTime": "2017-08-22T21:48:09Z"
 		},
 		{
 			"checksumSHA1": "BYvROBsiyAXK4sq6yhDe8RgT4LM=",

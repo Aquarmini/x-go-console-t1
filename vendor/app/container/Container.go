@@ -13,6 +13,7 @@ var instance bool = false
 type Container struct {
 	Logger *providers.Logger `inject:"logger"`
 	Config *providers.Config `inject:"config"`
+	DB     *providers.DB `inject:"db"`
 }
 
 func GetInstance() Container {
@@ -40,6 +41,7 @@ func GetInstance() Container {
 		&inject.Object{Value: &di, Name:"di"},
 		&inject.Object{Value:providers.NewConfig(), Name:"config"},
 		&inject.Object{Value:providers.NewLogger(), Name:"logger"},
+		&inject.Object{Value:providers.NewDB(), Name:"db"},
 	)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
@@ -70,6 +72,6 @@ func GetInstance() Container {
 }
 
 func (this *Container) Register() error {
-	
+
 	return nil
 }

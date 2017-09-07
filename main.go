@@ -16,7 +16,7 @@ func main() {
 		fmt.Println("请输入方法名")
 		return
 	}
-	
+
 	TaskMap := config.GetTaskMap(di)
 
 	for i := 1; i < len(os.Args); i++ {

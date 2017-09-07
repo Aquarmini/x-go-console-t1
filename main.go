@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"app/container"
-	"app/controller"
+	"app/config"
 )
 
 func main() {
@@ -16,11 +16,8 @@ func main() {
 		fmt.Println("请输入方法名")
 		return
 	}
-
-	TaskMap := make(map[string]controller.ControllerInterface)
-
-	TaskMap["Test"] = &controller.TestController{DI:di}
-	TaskMap["Log"] = &controller.LogController{DI:di}
+	
+	TaskMap := config.GetTaskMap(di)
 
 	for i := 1; i < len(os.Args); i++ {
 		params = append(params, os.Args[i])

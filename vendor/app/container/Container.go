@@ -68,3 +68,8 @@ func GetInstance() Container {
 
 	return di
 }
+
+func (this *Container) Register() error {
+	
+	return nil
+}
